@@ -11,7 +11,7 @@ param(
   [string]$Sku = "Standard_LRS"
 )
 
-$containers = @("raw", "video-indexer", "frames", "outputs")
+$containers = @("raw", "video-indexer", "frames", "outputs", "manifests")
 
 function Ensure-AzCli {
   $az = Get-Command az -ErrorAction SilentlyContinue

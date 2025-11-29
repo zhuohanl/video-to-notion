@@ -2,7 +2,7 @@
 Upload a video to Azure Video Indexer via SAS URL, poll until processed, and save the insights JSON locally and to Blob.
 
 Usage (env-first):
-  python scripts/vi_upload_and_poll.py --job-id <id>
+  python scripts/step3_vi_upload_and_poll.py --job-id <id>
 
 Key env vars / flags:
   VIDEO_INDEXER_ACCOUNT_ID
@@ -177,6 +177,9 @@ def upload_index_blob(
     )
     print(f"Uploaded index to blob: {container}/{blob_name}")
 
+def read_index_local(path: Path) -> dict:
+    # Load index.json from local disk.
+    return json.loads(path.read_text(encoding="utf-8"))
 
 def main():
     load_dotenv()
@@ -259,8 +262,7 @@ def main():
     save_index_local(index_data, Path(args.output))
 
     # Load index_data from the local file
-    with open(args.output, "r", encoding="utf-8") as f:
-        index_data = json.load(f)
+    index_data = read_index_local(Path(args.output))
 
     # Save to Blob if desired.
     if not args.skip_blob_upload:

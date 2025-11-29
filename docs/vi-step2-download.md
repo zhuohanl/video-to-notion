@@ -3,7 +3,7 @@
 Goal: Download the sample YouTube video, trim to 5m20s to control VI cost, and upload to Blob Storage at `raw/vid/{jobId}.mp4`.
 
 ## Script
-- Path: `scripts/download_and_trim.py`
+- Path: `scripts/step2_download_and_trim.py`
 - Requirements: `yt-dlp` (on PATH), `ffmpeg` (on PATH), Python packages `azure-storage-blob` and optionally `python-dotenv` (add `azure-identity` if using AAD).
 - Inputs (env or flags):
   - `VIDEO_URL` (default: `https://youtu.be/UiCtBkC9hgs`)
@@ -25,7 +25,7 @@ python -m pip install azure-storage-blob yt-dlp python-dotenv
 
 ## Run (PowerShell example)
 ```pwsh
-python scripts/download_and_trim.py `
+python scripts/step2_download_and_trim.py `
   --video-url $env:VIDEO_URL `
   --job-id $env:JOB_ID `
   --auth-mode key `
@@ -43,7 +43,7 @@ python scripts/download_and_trim.py `
 ```
 AAD example:
 ```pwsh
-python scripts/download_and_trim.py `
+python scripts/step2_download_and_trim.py `
   --video-url $env:VIDEO_URL `
   --job-id $env:JOB_ID `
   --auth-mode aad `
@@ -57,7 +57,7 @@ python scripts/download_and_trim.py `
   --upload-concurrency 4 `
   --output-dir ./tmp
 ```
-If env vars are set in `.env`, you can just run `python scripts/download_and_trim.py`.
+If env vars are set in `.env`, you can just run `python scripts/step2_download_and_trim.py`.
 
 ## What to expect
 - Local files in `./tmp/{jobId}.mp4` (full) and `./tmp/{jobId}_trimmed.mp4`.

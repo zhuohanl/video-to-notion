@@ -2,7 +2,7 @@
 Download a YouTube video, trim to 5m20s, and upload to Blob Storage.
 
 Usage:
-  python scripts/download_and_trim.py --video-url <url> --job-id <id> \
+  python scripts/step2_download_and_trim.py --video-url <url> --job-id <id> \
     --connection-string "<storage-connection-string>" \
     [--raw-container raw] [--output-dir ./tmp]
 

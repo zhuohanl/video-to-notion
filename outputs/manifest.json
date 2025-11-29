@@ -1,0 +1,165 @@
+{
+  "jobId": "demo-uiCt",
+  "segments": [
+    {
+      "segmentStartMs": 33,
+      "segmentEndMs": 1267,
+      "framePath": "C:\\Users\\zhuohangli\\Documents\\dev\\video-to-notion\\tmp\\frames\\demo-uiCt\\299.jpg",
+      "speaker": null,
+      "text": "",
+      "source": "VI"
+    },
+    {
+      "segmentStartMs": 1267,
+      "segmentEndMs": 2602,
+      "framePath": "C:\\Users\\zhuohangli\\Documents\\dev\\video-to-notion\\tmp\\frames\\demo-uiCt\\299.jpg",
+      "speaker": null,
+      "text": "",
+      "source": "VI"
+    },
+    {
+      "segmentStartMs": 2602,
+      "segmentEndMs": 4103,
+      "framePath": "C:\\Users\\zhuohangli\\Documents\\dev\\video-to-notion\\tmp\\frames\\demo-uiCt\\1467.jpg",
+      "speaker": null,
+      "text": "",
+      "source": "VI"
+    },
+    {
+      "segmentStartMs": 4103,
+      "segmentEndMs": 13246,
+      "framePath": "C:\\Users\\zhuohangli\\Documents\\dev\\video-to-notion\\tmp\\frames\\demo-uiCt\\2668.jpg",
+      "speaker": null,
+      "text": "",
+      "source": "VI"
+    },
+    {
+      "segmentStartMs": 13246,
+      "segmentEndMs": 15181,
+      "framePath": "C:\\Users\\zhuohangli\\Documents\\dev\\video-to-notion\\tmp\\frames\\demo-uiCt\\5104.jpg",
+      "speaker": null,
+      "text": "",
+      "source": "VI"
+    },
+    {
+      "segmentStartMs": 15181,
+      "segmentEndMs": 16870,
+      "framePath": "C:\\Users\\zhuohangli\\Documents\\dev\\video-to-notion\\tmp\\frames\\demo-uiCt\\13679.jpg",
+      "speaker": null,
+      "text": "",
+      "source": "VI"
+    },
+    {
+      "segmentStartMs": 16870,
+      "segmentEndMs": 28094,
+      "framePath": "C:\\Users\\zhuohangli\\Documents\\dev\\video-to-notion\\tmp\\frames\\demo-uiCt\\16582.jpg",
+      "speaker": 1,
+      "text": "Hello, it is great to be back at Ignite and to talk with you all today about Microsoft 365 Copilot. We have been working hard this year to build a product you love, a product that you cannot work without.",
+      "source": "VI"
+    },
+    {
+      "segmentStartMs": 28094,
+      "segmentEndMs": 48314,
+      "framePath": "C:\\Users\\zhuohangli\\Documents\\dev\\video-to-notion\\tmp\\frames\\demo-uiCt\\16582.jpg",
+      "speaker": 1,
+      "text": "We have shipped over 400 new features. Based on your feedback. You told us to move faster. We shipped GPT 5 on the same day that it was launched. We released Researcher with computer use. You tell Copilot what to do and it gets the job done.",
+      "source": "VI"
+    },
+    {
+      "segmentStartMs": 48314,
+      "segmentEndMs": 62628,
+      "framePath": "C:\\Users\\zhuohangli\\Documents\\dev\\video-to-notion\\tmp\\frames\\demo-uiCt\\28127.jpg",
+      "speaker": 1,
+      "text": "And at night, we're bringing Sora 2 to the Copilot Create experience so you can bring your ideas to life and video. You told us you wanted model choice. We brought anthropic models to researcher and now they're powering more innovations that you'll see here today.",
+      "source": "VI"
+    },
+    {
+      "segmentStartMs": 62628,
+      "segmentEndMs": 104937,
+      "framePath": "C:\\Users\\zhuohangli\\Documents\\dev\\video-to-notion\\tmp\\frames\\demo-uiCt\\48381.jpg",
+      "speaker": 1,
+      "text": "And as fast as we innovate, we know that the fundamentals are non negotiable. We never lose sight of what matters most, ensuring that Copilot is high performing, that it's reliable, and it's secure at the core. Today, more than 90% of the Fortune 500 use Copilot. Barclays is making banking more personal and more intuitive for their customers. DuPont is helping scientists go faster from hypothesis to breakthroughs, and Levi's is helping retail employees better serve their customers.",
+      "source": "VI"
+    },
+    {
+      "segmentStartMs": 104937,
+      "segmentEndMs": 116616,
+      "framePath": "C:\\Users\\zhuohangli\\Documents\\dev\\video-to-notion\\tmp\\frames\\demo-uiCt\\62662.jpg",
+      "speaker": 1,
+      "text": "Now these companies, they're not just adopting Copilot, they are reshaping their operating models with Copilot. Now the pace of AIM innovation is relentless, and so are we.",
+      "source": "VI"
+    },
+    {
+      "segmentStartMs": 116616,
+      "segmentEndMs": 126092,
+      "framePath": "C:\\Users\\zhuohangli\\Documents\\dev\\video-to-notion\\tmp\\frames\\demo-uiCt\\105171.jpg",
+      "speaker": 1,
+      "text": "We are committed to not just bringing you AI that works, we are delivering AI built for work.",
+      "source": "VI"
+    },
+    {
+      "segmentStartMs": 126092,
+      "segmentEndMs": 142408,
+      "framePath": "C:\\Users\\zhuohangli\\Documents\\dev\\video-to-notion\\tmp\\frames\\demo-uiCt\\116682.jpg",
+      "speaker": 1,
+      "text": "Copilot is a unified experience that brings AI and agents together. It's powered by the best models, all in the apps that your employees use every single day. And it's all secure at the core on your M365 environment.",
+      "source": "VI"
+    },
+    {
+      "segmentStartMs": 142408,
+      "segmentEndMs": 154353,
+      "framePath": "C:\\Users\\zhuohangli\\Documents\\dev\\video-to-notion\\tmp\\frames\\demo-uiCt\\126359.jpg",
+      "speaker": 1,
+      "text": "We take the latest innovations and fine tune them for business so you can focus on results. So what makes Copilot AI built for work? Work IQ?",
+      "source": "VI"
+    },
+    {
+      "segmentStartMs": 154353,
+      "segmentEndMs": 202935,
+      "framePath": "C:\\Users\\zhuohangli\\Documents\\dev\\video-to-notion\\tmp\\frames\\demo-uiCt\\142441.jpg",
+      "speaker": 1,
+      "text": "Work IQ is the intelligence layer that powers Copilot. It understands you, your job, and your company. So what does that mean? Well, let's start with data. copilot knows you at work. It knows your most important meetings and knows the files you're working on. It knows your unread emails. It knows the people you work for and the people you work with. Next is memory. Copilot knows the way you work, your style, your preferences, your habits. It also knows your workflows, like how do you handle important tasks like a customer escalation, preparing for completing an RFP, or even getting your annual review ready. And finally, there's inference. This is where Copilot puts it all together and makes connections and unlocks insights and even predicts the next best action for you.",
+      "source": "VI"
+    },
+    {
+      "segmentStartMs": 202935,
+      "segmentEndMs": 211344,
+      "framePath": "C:\\Users\\zhuohangli\\Documents\\dev\\video-to-notion\\tmp\\frames\\demo-uiCt\\163396.jpg",
+      "speaker": null,
+      "text": "",
+      "source": "VI"
+    },
+    {
+      "segmentStartMs": 211344,
+      "segmentEndMs": 227226,
+      "framePath": "C:\\Users\\zhuohangli\\Documents\\dev\\video-to-notion\\tmp\\frames\\demo-uiCt\\203202.jpg",
+      "speaker": 1,
+      "text": "And it's secure. It keeps all of your data in your tenant under your control and respects all of your policies and permissions. And work IQ is built into the Microsoft 365 apps, so it creates this powerful feedback loop, right?",
+      "source": "VI"
+    },
+    {
+      "segmentStartMs": 227226,
+      "segmentEndMs": 257256,
+      "framePath": "C:\\Users\\zhuohangli\\Documents\\dev\\video-to-notion\\tmp\\frames\\demo-uiCt\\211611.jpg",
+      "speaker": 1,
+      "text": "For Copilot, it's constantly picking up more and more signals and using them to deliver smarter, more personalized experiences. And you can also tap into Work IQ to build your own custom agents tuned to your unique work flows and business needs. Well, you may be thinking, how is Work IQ different from using other AI tools with M365 Connectors? Well, connectors only pull fragments of data with no real understanding of context and relationships, so they often miss critical information or even give incomplete answers, and worse, they may hallucinate.",
+      "source": "VI"
+    },
+    {
+      "segmentStartMs": 257256,
+      "segmentEndMs": 272038,
+      "framePath": "C:\\Users\\zhuohangli\\Documents\\dev\\video-to-notion\\tmp\\frames\\demo-uiCt\\227493.jpg",
+      "speaker": 1,
+      "text": "Copilot does not guess work.",
+      "source": "VI"
+    },
+    {
+      "segmentStartMs": 272038,
+      "segmentEndMs": 286719,
+      "framePath": "C:\\Users\\zhuohangli\\Documents\\dev\\video-to-notion\\tmp\\frames\\demo-uiCt\\257323.jpg",
+      "speaker": 1,
+      "text": "IQ works across all of your data in real time with full context, providing views and to valuable patterns and insights. Also, connectors do not respect your controls, adding real risk to your most valuable asset, your company's knowledge.",
+      "source": "VI"
+    }
+  ]
+}

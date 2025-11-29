@@ -28,11 +28,45 @@ High-level design for turning a YouTube URL into Notion-ready HTML/Markdown with
 2) **Download**: Container App Job pulls the video via `yt-dlp` to Blob `raw/vid/{jobId}.mp4`; emit status via Event Grid.
 3) **Index**: Orchestrator calls Video Indexer `Upload and Index` with SAS; poll status (timer/delay+retry) until `Processed`; fetch full insights JSON and persist to Blob `video-indexer/{jobId}/index.json`.
 4) **Keyframes**: For each shot boundary from insights, fetch the representative thumbnail via VI API; store to `frames/{jobId}/{shotStartMs}.jpg`.
+   - Rationale: shot boundaries typically align to slide or scene changes; VI’s keyframe is a stable representative image (vs. arbitrary frames) that visually anchors that section.
 5) **Speaker breaks**: Build breakpoints on speaker changes from transcript diarization. If a speaker change has no shot change nearby, fetch a thumbnail at that timestamp (VI) or capture via `ffmpeg` to keep every segment illustrated.
+   - Rationale: shot boundaries capture slide/visual shifts; speaker switches catch conversation turns that may not move the camera. Sorting and merging both in timestamp order yields one unified timeline, so each segment has exactly one frame and one transcript window without overlaps or gaps.
 6) **Alignment**: Merge sorted breakpoints (shot + speaker). For each segment: transcript window between breakpoints, frame URL, speaker metadata. Persist to Cosmos `segments` and Blob `manifests/{jobId}.json`.
 7) **Summarize**: Azure OpenAI condenses each transcript window into a paragraph; enforce size limits for Notion blocks. Keep raw transcript alongside summary for transparency.
 8) **Publish**: Render HTML/Markdown with `<img>` + paragraph blocks (including timestamps, optional speaker names); write to Blob `outputs/{jobId}.md|html` with short-lived SAS. Optionally push to Notion API.
 9) **Notify**: Status endpoint or webhook callback; states: `queued -> processing -> generating -> completed` (or `failed` with reason).
+
+## Segment Definition and Example
+- **Segment**: The merged time slice between any two breakpoints (shot boundary or speaker change). Each segment aggregates transcript lines in that window, carries a speaker label (e.g., first speaker in window), and points to one illustrative frame (typically the nearest shot keyframe at or before the segment start). Segments are what we summarize and render into the final Notion-ready output.
+- **Why this differs from shots/frames**:
+  - *Shot*: Visual boundary (slide/scene change) with a representative keyframe.
+  - *Frame*: Extracted image (e.g., shot keyframe) stored at `frames/{jobId}/{shotStartMs}.jpg`.
+  - *Segment*: Logical note chunk between merged breakpoints (shot + speaker), containing text + speaker + frame.
+- **Example**:
+
+    Shot boundaries from VI:
+    *Shot A*: 0:00–0:45 (keyframe at 0 ms → frame frames/job/0.jpg)
+    *Shot B*: 0:45–1:30 (keyframe at 45,000 ms → frame frames/job/45000.jpg)
+
+    Speaker changes from transcript:
+    *Speaker 1* starts at 0:00
+    *Speaker 2* starts at 1:00 (no shot change there; camera stays on same slide)
+    *Speaker 1* starts again at 1:20
+
+    Breakpoints (sorted, deduped): 
+    - 0:00 (shot+speaker)
+    - 0:45 (shot)
+    - 1:00 (speaker)
+    - 1:20 (speaker)
+    - 1:30 (end implied)
+
+    Segments built between breakpoints:
+    1. 0:00–0:45 → text = transcript lines in this window, speaker ~1, frame = frames/job/0.jpg (shot A keyframe)
+    2. 0:45–1:00 → text = transcript lines here (still Speaker 1), frame = frames/job/45000.jpg (shot B keyframe)
+    3. 1:00–1:20 → text = transcript lines here (Speaker 2), frame = frames/job/45000.jpg (no new shot, reuse nearest shot keyframe)
+    4. 1:20–1:30 → text = transcript lines here (Speaker 1), frame = frames/job/45000.jpg
+
+    So: shots give you where slides/scenes change and their keyframes; speaker changes add conversational breaks even without a visual change. A segment is the merged time slice between any two breakpoints, with transcript + speaker + one illustrative frame.
 
 ## Fallback/Custom Media Path (when not using VI)
 - After download, container job:
@@ -92,6 +126,7 @@ Auth via AAD or API keys; enforce rate limits at APIM.
 - Optional face/name tagging via VI when policy allows.
 - Chapter detection from combined shot + semantic cues for TOC.
 - Per-user quotas/billing (APIM subscriptions or Stripe metering).
+- Speaker-only thumbnails: optionally capture thumbnails at speaker-change timestamps (via VI thumbnail-by-timestamp or ffmpeg) when no shot change occurs, to better illustrate new speakers (useful for panels/interviews; incurs extra calls/storage).
 
 ## Diagrams
 

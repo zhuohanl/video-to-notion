@@ -3,7 +3,7 @@
 Goal: Upload the trimmed video in Blob to Azure Video Indexer (VI), poll until processed, and save the insights JSON locally and to Blob.
 
 ## Script
-- Path: `scripts/vi_upload_and_poll.py`
+- Path: `scripts/step3_vi_upload_and_poll.py`
 - Requirements: `requests`, `azure-storage-blob`, `python-dotenv` (optional).
 
 ## Inputs (env or flags)
@@ -28,7 +28,7 @@ Goal: Upload the trimmed video in Blob to Azure Video Indexer (VI), poll until p
 
 ## Run (PowerShell example)
 ```pwsh
-python scripts/vi_upload_and_poll.py `
+python scripts/step3_vi_upload_and_poll.py `
   --job-id $env:JOB_ID `
   --storage-conn $env:AZURE_STORAGE_CONNECTION_STRING `
   --account-id $env:VIDEO_INDEXER_ACCOUNT_ID `
@@ -44,7 +44,7 @@ python scripts/vi_upload_and_poll.py `
 ```
 AAD example (user delegation SAS):
 ```pwsh
-python scripts/vi_upload_and_poll.py `
+python scripts/step3_vi_upload_and_poll.py `
   --job-id $env:JOB_ID `
   --storage-account $env:AZURE_STORAGE_ACCOUNT `
   --account-id $env:VIDEO_INDEXER_ACCOUNT_ID `
@@ -56,7 +56,7 @@ python scripts/vi_upload_and_poll.py `
   --auth-mode aad `
   --output "tmp/index.json"
 ```
-If env vars are set in `.env`, you can usually just run `python scripts/vi_upload_and_poll.py --job-id <id>`.
+If env vars are set in `.env`, you can usually just run `python scripts/step3_vi_upload_and_poll.py --job-id <id>`.
 
 ## What it does
 1) Builds a read SAS URL for `raw/vid/{jobId}.mp4` (24h TTL by default).
